@@ -1,10 +1,31 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import App from './App.jsx'
-// import './index.css'
+import Chickspage from './products/Chickspage.jsx'
+import Datepage from './date/Datepage.jsx'
 
-ReactDOM.createRoot(document.getElementById('root')).render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
+import {
+  createBrowserRouter,
+  RouterProvider,
+} from "react-router-dom";
+
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <App/>,
+  },
+    {
+    path: "/chicks",
+    element: <Chickspage/>,
+  },
+  {
+    path: "/date_confermation",
+    element: <Datepage/>,
+  },
+]);
+
+const root=ReactDOM.createRoot(document.getElementById('root'))
+root.render(
+    <RouterProvider router = {router} />
+
 )
